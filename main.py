@@ -18,7 +18,7 @@ def return_doc_from_bytes(pdfbytes):
   return doc
 
 def return_ms_doc_from_bytes(pdfbytes):
-  doc = docx.Document(stream=pdfbytes)
+  doc = docx.Document(pdfbytes)
   return doc
 
 def preprocessing(documents):
