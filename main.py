@@ -77,7 +77,7 @@ def st_ui():
     if Enter_text:
       result=search_report(cleaned_document,Enter_text)
       st.text('Related Information')
-      print(result)
+      st.write(result)
  
 
 if __name__ == "__main__":
