@@ -67,7 +67,7 @@ def st_ui():
         #st.text('debug point 1')
       #st.text(text)
     elif select_category =="Word Document":
-      doc = docx.Document(pdfbytes)
+      doc = docx.Document(stream=pdfbytes)
       for i in range(len(doc.paragraphs)):
         text+=(doc.paragraphs[i].text)
     cleaned_document=preprocessing(text)
