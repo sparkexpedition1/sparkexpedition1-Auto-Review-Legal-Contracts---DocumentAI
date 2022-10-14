@@ -76,7 +76,7 @@ def st_ui():
     if select_category == "PPT":
       pass
     if Enter_text:
-      result=search_report(cleaned_document,Enter_text)
+      result=search_report(cleaned_document,Enter_text.lower())
       st.header('Related information to clause')
       info=''
       for i in result:
