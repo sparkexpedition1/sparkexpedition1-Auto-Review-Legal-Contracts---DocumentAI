@@ -45,7 +45,7 @@ def search_report(documents_clean,query):
   bm25 = BM25Okapi(tokenized_corpus)
   tokenized_query = query.split()
   # doc_scores = bm25.get_scores(tokenized_query)
-  result=bm25.get_top_n(tokenized_query,documents_clean , n=5)
+  result=bm25.get_top_n(tokenized_query,documents_clean , n=15)
   return result
 def st_ui():
   st.set_page_config(layout = "wide")
@@ -64,19 +64,20 @@ def st_ui():
       doc = return_doc_from_bytes(pdfbytes)
       for page in doc:
         text+=(page.get_text().split('\n'))
-      st.text('debug point 1')
-      st.text(text)
+        #st.text('debug point 1')
+      #st.text(text)
     elif select_category =="Word Document":
       doc = docx.Document(fileupload)
       for i in range(len(doc.paragraphs)):
         text+=(doc.paragraphs[i].text)
     cleaned_document=preprocessing(text)
-    st.text('debug point 2')
+    #st.text('debug point 2')
     if select_category == "PPT":
       pass
     if Enter_text:
       result=search_report(cleaned_document,Enter_text)
-      st.text(result)
+      st.text('Related Information')
+      print(result)
  
 
 if __name__ == "__main__":
