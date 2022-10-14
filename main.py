@@ -80,7 +80,7 @@ def st_ui():
       st.header('Related information to clause')
       info=''
       for i in result:
-          info+=i
+          info+=i+" "
       st.write(info)
  
 
