@@ -67,13 +67,13 @@ def st_ui():
         text+=(page.get_text().split('\n'))
         #st.text('debug point 1')
       #st.text(text)
-    elif select_category =="Word Document":
+    if select_category =="Word Document":
       doc = docx.Document(fileupload)
       for i in range(len(doc.paragraphs)):
         text+=(doc.paragraphs[i].text)
     cleaned_document=preprocessing(text)
     #st.text('debug point 2')
-    elif select_category == "PPT":
+    if select_category == "PPT":
       pass
     if Enter_text:
       result=search_report(cleaned_document,Enter_text)
