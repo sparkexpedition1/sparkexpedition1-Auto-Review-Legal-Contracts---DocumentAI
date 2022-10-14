@@ -77,8 +77,11 @@ def st_ui():
       pass
     if Enter_text:
       result=search_report(cleaned_document,Enter_text)
-      st.text('Related Information')
-      st.write(result)
+      st.header('Related information to clause')
+      info=''
+      for i in result:
+          info+=i
+      st.write(info)
  
 
 if __name__ == "__main__":
