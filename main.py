@@ -17,6 +17,10 @@ def return_doc_from_bytes(pdfbytes):
   doc = fitz.open(stream=pdfbytes)
   return doc
 
+def return_ms_doc_from_bytes(pdfbytes):
+  doc = docx.Document(stream=pdfbytes)
+  return doc
+
 def preprocessing(documents):
   documents_clean = []
   for d in documents:
@@ -59,15 +63,15 @@ def st_ui():
    
   if fileupload:
     text=[]
+    pdfbytes = fileupload.getvalue()
     if select_category == "PDF":
-      pdfbytes = fileupload.getvalue()
       doc = return_doc_from_bytes(pdfbytes)
       for page in doc:
         text+=(page.get_text().split('\n'))
         #st.text('debug point 1')
       #st.text(text)
     elif select_category =="Word Document":
-      doc = docx.Document(stream=pdfbytes)
+      doc = return_ms_doc_from_bytes(pdfbytes)
       for i in range(len(doc.paragraphs)):
         text+=(doc.paragraphs[i].text)
     cleaned_document=preprocessing(text)
