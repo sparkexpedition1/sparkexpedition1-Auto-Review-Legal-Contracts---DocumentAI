@@ -58,7 +58,6 @@ def st_ui():
   fileupload = st.sidebar.file_uploader("Upload a Contract here")
   select_category = st.sidebar.selectbox("select_category", ["category", "PDF", 'Word Document','PPT'])
   Enter_text = st.sidebar.text_input("Text to search")
-  st.text(fileupload)
   Button=st.sidebar.button('Analyze_contract')
    
   if fileupload:
