@@ -63,6 +63,7 @@ def st_ui():
    
   if fileupload:
     text=[]
+    st.text(fileupload')
     pdfbytes = fileupload.getvalue()
     if select_category == "PDF":
       doc = return_doc_from_bytes(pdfbytes)
