@@ -59,30 +59,19 @@ def st_ui():
   st.set_page_config(layout = "wide")
   st.title("Auto Review Legal contracts - DocumentAI")  
   fileupload = st.sidebar.file_uploader("Upload a Contract here")
-  select_category = st.sidebar.selectbox("select_category", ["category", "PDF", 'Word Document','PPT'])
+  select_category = st.sidebar.selectbox("select_category", ["category", "Content Analytics", "Risk Analytics","Search"])
   Enter_text = st.sidebar.text_input("Text to search")
   Button=st.sidebar.button('Risk Analytics')
    
   if fileupload:
     text=[]
     pdfbytes = fileupload.getvalue()
-    if select_category == "PDF":
-      doc = return_doc_from_bytes(pdfbytes)
-      for page in doc:
-        text+=(page.get_text().split('\n'))
-      cleaned_document=preprocessing(text)
-      #st.write(cleaned_document)
-      clean_text=data_string(cleaned_document)
-      #st.header("clean document")
-      #st.write(clean_text)
-      if Enter_text:
-        result=search_report(cleaned_document,Enter_text.lower())
-        st.header('Related information to clause')
-        info=''
-        for i in result:
-            info+=i+" "
-        st.write(info)
-      
+    doc = return_doc_from_bytes(pdfbytes)
+    for page in doc:
+      text+=(page.get_text().split('\n'))
+    cleaned_document=preprocessing(text)
+    clean_text=data_string(cleaned_document)
+    if select_category == "Content Analytics":
       if Button:
         st.header('wordcloud')
         wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(clean_text)
@@ -93,6 +82,20 @@ def st_ui():
         plt.tight_layout(pad = 0)
         plt.show()
         st.pyplot(fig=plt)
+    elif select_category == "Risk Analytics":
+      pass
+ 
+    elif select_category == "Search":
+      if Enter_text:
+        result=search_report(cleaned_document,Enter_text.lower())
+        st.header('Related information to clause')
+        info=''
+        for i in result:
+            info+=i+" "
+        st.write(info)
+    
+      
+
       
  
 
