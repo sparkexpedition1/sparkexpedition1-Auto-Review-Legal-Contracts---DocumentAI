@@ -89,6 +89,9 @@ def st_ui():
       for sentence in cleaned_document:
         tokens+=nltk.word_tokenize(sentence)
       a=Counter(tokens)
+      risk_words=['omitted','Accident','Interruption','Failure','Consequence','Contingencies','harm','Crisis','Disaster','Emergency', 'Hazard','Intolerable', 'Mitigation','Uncertainties','possession','burdened','sublicensees',
+                  'termination','indeminity','liability','breach','liquidity','missed delivery dates','warranty','problems','dispute','confidentiality' 'disclosures','litigation','compliance',
+                  'conflicts','monetary','losses','Severity','interruption','Reduction','Damage','Vulnerability']
       for key, value in list(a.items()):
           if key not in risk_words:
               del a[key]
