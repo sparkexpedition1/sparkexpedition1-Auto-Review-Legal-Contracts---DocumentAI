@@ -82,8 +82,9 @@ def st_ui():
         for i in result:
             info+=i+" "
         st.write(info)
-      st.header('wordcloud')
+      
       if Button:
+        st.header('wordcloud')
         wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(clean_text)
         # plot the WordCloud image
         plt.figure(figsize = (15,10), facecolor = None)
