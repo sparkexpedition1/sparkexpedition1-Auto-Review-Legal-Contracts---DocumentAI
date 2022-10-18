@@ -99,6 +99,7 @@ def st_ui():
       r_text=''
       for key, value in list(a.items()):
           r_text+=key+" "
+      st.write(r_text)
       #wordcloud = WordCloud(width=800,height=800,background_color='white').generate_from_frequencies(a)
       if button:
         st.header('risk analytics wordcloud')
