@@ -67,29 +67,30 @@ def st_ui():
       for page in doc:
         text+=(page.get_text().split('\n'))
       cleaned_document=preprocessing(text)
+      st.write(cleaned_document)
       clean_text=''
       for i in clean_document:
         clean_text+=i+" "
       st.header("clean document")
-      st.write(clean_document)
+      st.write(clean_text)
     
-    if Enter_text:
-      result=search_report(cleaned_document,Enter_text.lower())
-      st.header('Related information to clause')
-      info=''
-      for i in result:
-          info+=i+" "
-      st.write(info)
-    st.header('wordcloud')
-    if Button:
-      wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(clean_text)
-      # plot the WordCloud image
-      plt.figure(figsize = (15,10), facecolor = None)
-      plt.imshow(wordcloud,interpolation="bilinear")
-      plt.axis("off")
-      plt.tight_layout(pad = 0)
-      plt.show()
-      st.pyplot(fig=plt)
+      if Enter_text:
+        result=search_report(cleaned_document,Enter_text.lower())
+        st.header('Related information to clause')
+        info=''
+        for i in result:
+            info+=i+" "
+        st.write(info)
+      st.header('wordcloud')
+      if Button:
+        wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(clean_text)
+        # plot the WordCloud image
+        plt.figure(figsize = (15,10), facecolor = None)
+        plt.imshow(wordcloud,interpolation="bilinear")
+        plt.axis("off")
+        plt.tight_layout(pad = 0)
+        plt.show()
+        st.pyplot(fig=plt)
       
  
 
