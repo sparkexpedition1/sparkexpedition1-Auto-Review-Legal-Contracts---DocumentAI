@@ -42,6 +42,11 @@ def preprocessing(documents):
     document_test = ' '.join(document_test)
     documents_clean.append(document_test)
   return documents_clean
+def data_string(cleaned_document):
+  clean_text=''
+  for i in cleaned_document:
+    clean_text+=i+" "
+  return clean_text
 
 def search_report(documents_clean,query):
   tokenized_corpus = [doc.split(" ") for doc in documents_clean]
@@ -66,13 +71,10 @@ def st_ui():
       for page in doc:
         text+=(page.get_text().split('\n'))
       cleaned_document=preprocessing(text)
-      st.write(cleaned_document)
-      clean_text=''
-      for i in cleaned_document:
-        clean_text+=i+" "
-      st.header("clean document")
-      st.write(clean_text)
-    
+      #st.write(cleaned_document)
+      clean_text=data_string(cleaned_document)
+      #st.header("clean document")
+      #st.write(clean_text)
       if Enter_text:
         result=search_report(cleaned_document,Enter_text.lower())
         st.header('Related information to clause')
