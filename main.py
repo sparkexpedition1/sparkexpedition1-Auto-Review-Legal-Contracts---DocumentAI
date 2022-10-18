@@ -74,7 +74,7 @@ def st_ui():
       for i in range(len(doc.paragraphs)):
         text+=(doc.paragraphs[i].text)
     cleaned_document=preprocessing(text)
-    st.text('cleaned_document')
+    st.text(cleaned_document)
     if select_category == "PPT":
       pass
     if Enter_text:
