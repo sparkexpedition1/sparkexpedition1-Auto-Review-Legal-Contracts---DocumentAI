@@ -63,6 +63,7 @@ def st_ui():
   fileupload = st.sidebar.file_uploader("Upload a Contract here")
   select_category = st.sidebar.selectbox("select_category", ["category", "Content Analytics", "Risk Analytics","Search"])
   Button=st.sidebar.button('content Analytics')
+  button=st.sidebar.button('Risk Analytics')
   Enter_text = st.sidebar.text_input("Text to search")
    
   if fileupload:
@@ -75,7 +76,7 @@ def st_ui():
     clean_text=data_string(cleaned_document)
     if select_category == "Content Analytics":
       if Button:
-        st.header('wordcloud for risk analytics')
+        st.header('wordcloud')
         wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(clean_text)
         # plot the WordCloud image
         plt.figure(figsize = (15,10), facecolor = None)
@@ -95,16 +96,19 @@ def st_ui():
       for key, value in list(a.items()):
           if key not in risk_words:
               del a[key]
-#       text=''
+#       r_text=''
 #       for key, value in list(a.items()):
-#           text+=key+" "
-      wordcloud = WordCloud(width=800,height=800,background_color='white').generate_from_frequencies(a)
-      # plot the WordCloud image
-      plt.figure(figsize = (8,8), facecolor = None)
-      plt.imshow(wordcloud,interpolation="bilinear")
-      plt.axis("off")
-      plt.tight_layout(pad = 0)
-      plt.show()
+#           r_text+=key+" "
+      #wordcloud = WordCloud(width=800,height=800,background_color='white').generate_from_frequencies(a)
+      if button:
+        st.header('risk analytics wordcloud')
+        wordcloud = WordCloud(width=800,height=800,background_color='white').generate(r_text)
+        # plot the WordCloud image
+        plt.figure(figsize = (8,8), facecolor = None)
+        plt.imshow(wordcloud,interpolation="bilinear")
+        plt.axis("off")
+        plt.tight_layout(pad = 0)
+        plt.show()
  
     if select_category == "Search":
       if Enter_text:
