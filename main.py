@@ -68,7 +68,7 @@ def st_ui():
       for page in doc:
         text+=(page.get_text().split('\n'))
         #st.text('debug point 1')
-      #st.text(text)
+      st.text(text)
     if select_category =="Word Document":
       doc = docx.Document(fileupload)
       for i in range(len(doc.paragraphs)):
