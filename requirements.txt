@@ -4,3 +4,5 @@ python-pptx
 nltk
 rank_bm25
 streamlit
+wordcloud
+matplotlib
