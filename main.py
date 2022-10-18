@@ -75,7 +75,7 @@ def st_ui():
     clean_text=data_string(cleaned_document)
     if select_category == "Content Analytics":
       if Button:
-        st.header('wordcloud')
+        st.header('wordcloud for risk analytics')
         wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(clean_text)
         # plot the WordCloud image
         plt.figure(figsize = (15,10), facecolor = None)
@@ -88,7 +88,20 @@ def st_ui():
       tokens=[]
       for sentence in cleaned_document:
         tokens+=nltk.word_tokenize(sentence)
-       
+      a=Counter(tokens)
+      for key, value in list(a.items()):
+          if key not in risk_words:
+              del a[key]
+      text=''
+      for key, value in list(a.items()):
+          text+=key+" "
+      wordcloud = WordCloud(width=800,height=800,background_color='white').generate_from_frequencies(a)
+      # plot the WordCloud image
+      plt.figure(figsize = (8,8), facecolor = None)
+      plt.imshow(wordcloud,interpolation="bilinear")
+      plt.axis("off")
+      plt.tight_layout(pad = 0)
+      plt.show()
  
     elif select_category == "Search":
       if Enter_text:
