@@ -60,8 +60,8 @@ def st_ui():
   st.title("Auto Review Legal contracts - DocumentAI")  
   fileupload = st.sidebar.file_uploader("Upload a Contract here")
   select_category = st.sidebar.selectbox("select_category", ["category", "Content Analytics", "Risk Analytics","Search"])
-  Enter_text = st.sidebar.text_input("Text to search")
   Button=st.sidebar.button('content Analytics')
+  Enter_text = st.sidebar.text_input("Text to search")
    
   if fileupload:
     text=[]
