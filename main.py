@@ -66,12 +66,12 @@ def st_ui():
       doc = return_doc_from_bytes(pdfbytes)
       for page in doc:
         text+=(page.get_text().split('\n'))
-    cleaned_document=preprocessing(text)
-    clean_text=''
-    for i in clean_document:
-      clean_text+=i+" "
-    st.header("clean document")
-    st.write(clean_document)
+      cleaned_document=preprocessing(text)
+      clean_text=''
+      for i in clean_document:
+        clean_text+=i+" "
+      st.header("clean document")
+      st.write(clean_document)
     
     if Enter_text:
       result=search_report(cleaned_document,Enter_text.lower())
