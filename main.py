@@ -12,6 +12,8 @@ from nltk.stem import WordNetLemmatizer
 stop_words=set(nltk.corpus.stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 from rank_bm25 import *
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
 def return_doc_from_bytes(pdfbytes):
   doc = fitz.open(stream=pdfbytes)
@@ -55,7 +57,7 @@ def st_ui():
   fileupload = st.sidebar.file_uploader("Upload a Contract here")
   select_category = st.sidebar.selectbox("select_category", ["category", "PDF", 'Word Document','PPT'])
   Enter_text = st.sidebar.text_input("Text to search")
-  Button=st.sidebar.button('Analyze_contract')
+  Button=st.sidebar.button('Risk Analytics')
    
   if fileupload:
     text=[]
@@ -82,6 +84,16 @@ def st_ui():
       for i in result:
           info+=i+" "
       st.write(info)
+    if Button:
+      wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(documents_clean)
+      # plot the WordCloud image
+      plt.figure(figsize = (15,10), facecolor = None)
+      plt.imshow(wordcloud,interpolation="bilinear")
+      plt.axis("off")
+      plt.tight_layout(pad = 0)
+      plt.show()
+      st.pyplot(fig=plt)
+      
  
 
 if __name__ == "__main__":
