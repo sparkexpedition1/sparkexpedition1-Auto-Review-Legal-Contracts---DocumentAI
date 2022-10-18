@@ -69,7 +69,7 @@ def st_ui():
       cleaned_document=preprocessing(text)
       st.write(cleaned_document)
       clean_text=''
-      for i in clean_document:
+      for i in cleaned_document:
         clean_text+=i+" "
       st.header("clean document")
       st.write(clean_text)
