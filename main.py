@@ -84,7 +84,7 @@ def st_ui():
         plt.tight_layout(pad = 0)
         plt.show()
         st.pyplot(fig=plt)
-    elif select_category == "Risk Analytics":
+    if select_category == "Risk Analytics":
       tokens=[]
       for sentence in cleaned_document:
         tokens+=nltk.word_tokenize(sentence)
@@ -95,9 +95,9 @@ def st_ui():
       for key, value in list(a.items()):
           if key not in risk_words:
               del a[key]
-      text=''
-      for key, value in list(a.items()):
-          text+=key+" "
+#       text=''
+#       for key, value in list(a.items()):
+#           text+=key+" "
       wordcloud = WordCloud(width=800,height=800,background_color='white').generate_from_frequencies(a)
       # plot the WordCloud image
       plt.figure(figsize = (8,8), facecolor = None)
@@ -106,7 +106,7 @@ def st_ui():
       plt.tight_layout(pad = 0)
       plt.show()
  
-    elif select_category == "Search":
+    if select_category == "Search":
       if Enter_text:
         result=search_report(cleaned_document,Enter_text.lower())
         st.header('Related information to clause')
