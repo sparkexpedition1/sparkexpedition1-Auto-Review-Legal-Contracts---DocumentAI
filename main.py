@@ -8,12 +8,14 @@ import nltk
 import streamlit as st
 nltk.download('all')
 from nltk.corpus import stopwords
+from nltk import sent_tokenize,word_tokenize
 from nltk.stem import WordNetLemmatizer
 stop_words=set(nltk.corpus.stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 from rank_bm25 import *
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+from collections import Counter
 
 def return_doc_from_bytes(pdfbytes):
   doc = fitz.open(stream=pdfbytes)
@@ -83,7 +85,10 @@ def st_ui():
         plt.show()
         st.pyplot(fig=plt)
     elif select_category == "Risk Analytics":
-      pass
+      tokens=[]
+      for sentence in cleaned_document:
+        tokens+=nltk.word_tokenize(sentence)
+       
  
     elif select_category == "Search":
       if Enter_text:
