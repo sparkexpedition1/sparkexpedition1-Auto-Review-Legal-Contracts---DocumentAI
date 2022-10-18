@@ -96,9 +96,9 @@ def st_ui():
       for key, value in list(a.items()):
           if key not in risk_words:
               del a[key]
-#       r_text=''
-#       for key, value in list(a.items()):
-#           r_text+=key+" "
+      r_text=''
+      for key, value in list(a.items()):
+          r_text+=key+" "
       #wordcloud = WordCloud(width=800,height=800,background_color='white').generate_from_frequencies(a)
       if button:
         st.header('risk analytics wordcloud')
