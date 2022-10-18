@@ -52,8 +52,7 @@ def search_report(documents_clean,query):
   return result
 def st_ui():
   st.set_page_config(layout = "wide")
-  st.title("Auto Review Legal contracts - DocumentAI")
-    
+  st.title("Auto Review Legal contracts - DocumentAI")  
   fileupload = st.sidebar.file_uploader("Upload a Contract here")
   select_category = st.sidebar.selectbox("select_category", ["category", "PDF", 'Word Document','PPT'])
   Enter_text = st.sidebar.text_input("Text to search")
@@ -67,16 +66,13 @@ def st_ui():
       doc = return_doc_from_bytes(pdfbytes)
       for page in doc:
         text+=(page.get_text().split('\n'))
-        #st.text('debug point 1')
-      #st.text(text)
-    if select_category =="Word Document":
-      doc = docx.Document(fileupload)
-      for i in range(len(doc.paragraphs)):
-        text+=(doc.paragraphs[i].text)
     cleaned_document=preprocessing(text)
-    st.text(cleaned_document)
-    if select_category == "PPT":
-      pass
+    clean_text=''
+    for i in clean_document:
+      clean_text+=i+" "
+    st.header("clean document")
+    st.write(clean_document)
+    
     if Enter_text:
       result=search_report(cleaned_document,Enter_text.lower())
       st.header('Related information to clause')
@@ -84,8 +80,9 @@ def st_ui():
       for i in result:
           info+=i+" "
       st.write(info)
+    st.header('wordcloud')
     if Button:
-      wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(documents_clean)
+      wordcloud = WordCloud(width = 800, height =600,background_color ='white',min_font_size = 5,max_words=500).generate(clean_text)
       # plot the WordCloud image
       plt.figure(figsize = (15,10), facecolor = None)
       plt.imshow(wordcloud,interpolation="bilinear")
