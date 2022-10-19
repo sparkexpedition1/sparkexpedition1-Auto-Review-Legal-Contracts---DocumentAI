@@ -3,5 +3,5 @@ nltk
 rank_bm25
 streamlit
 wordcloud
-matplotlib
 collections
+matplotlib
