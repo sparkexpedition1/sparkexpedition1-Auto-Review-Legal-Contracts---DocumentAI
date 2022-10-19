@@ -7,4 +7,3 @@ streamlit
 wordcloud
 matplotlib
 collections
-numpy
