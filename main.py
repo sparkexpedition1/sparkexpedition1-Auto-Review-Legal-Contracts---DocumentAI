@@ -127,11 +127,13 @@ def st_ui():
   st.title("'Counselor' -DocumentAI powered Review")  
 
   file_upload = st.sidebar.file_uploader("Upload Contract/Agreement here..")
-  select_category = st.sidebar.selectbox("Select Category", ["Simplify Content", "Risk Analytics","Spatial Analytics","Payments/Pricing Analytics","Stakeholders/Parties Analytics","Search Content"])
+#   select_category = st.sidebar.selectbox("Select Category", ["Simplify Content", "Risk Analytics","Spatial Analytics","Payments/Pricing Analytics","Stakeholders/Parties Analytics","Search Content"])
   search_text = st.sidebar.text_input("Text to search")
   action_button=st.sidebar.button('Analyze Contract')
+  st.checkbox("Simplify Content")
    
-  if file_upload:
+  if file_upload or st.session_state.load_state:
+    st.session_state.load_state=True
     text=[]
     pdfbytes = file_upload.getvalue()
     doc = return_doc_from_bytes(pdfbytes)
