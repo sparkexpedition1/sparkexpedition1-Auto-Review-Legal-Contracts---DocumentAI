@@ -46,8 +46,6 @@ from rank_bm25 import *
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from collections import Counter
-from mpl_toolkits.basemap import Basemap
-import numpy as np
 
 __author__ = "Kalpana D"
 __version__ = "1.0.1"
@@ -160,85 +158,7 @@ def st_ui():
         plt.tight_layout(pad = 0)
         plt.show()
         st.pyplot(fig=plt)
-        
-#     if select_category == "Spatial Analytics":
-#       if action_button:
-#         st.header('Simplifying the content as Word Cloud..')
-#         # set up orthographic map projection with
-#         # perspective of satellite looking down at 50N, 100W.
-#         # use low resolution coastlines.
-#         map = Basemap(projection='ortho',lat_0=45,lon_0=-100,resolution='l')
-#         # draw coastlines, country boundaries, fill continents.
-#         map.drawcoastlines(linewidth=0.25)
-#         map.drawcountries(linewidth=0.25)
-#         map.fillcontinents(color='coral',lake_color='aqua')
-#         # draw the edge of the map projection region (the projection limb)
-#         map.drawmapboundary(fill_color='aqua')
-#         # draw lat/lon grid lines every 30 degrees.
-#         map.drawmeridians(np.arange(0,360,30))
-#         map.drawparallels(np.arange(-90,90,30))
-#         # make up some data on a regular lat/lon grid.
-#         nlats = 73; nlons = 145; delta = 2.*np.pi/(nlons-1)
-#         lats = (0.5*np.pi-delta*np.indices((nlats,nlons))[0,:,:])
-#         lons = (delta*np.indices((nlats,nlons))[1,:,:])
-#         wave = 0.75*(np.sin(2.*lats)**8*np.cos(4.*lons))
-#         mean = 0.5*np.cos(2.*lats)*((np.sin(2.*lats))**2 + 2.)
-#         # compute native map projection coordinates of lat/lon grid.
-#         x, y = map(lons*180./np.pi, lats*180./np.pi)
-#         # contour data over the map.
-#         cs = map.contour(x,y,wave+mean,15,linewidths=1.5)
-#         plt.title('contour lines over filled continent background')
-#         plt.show()
-#         st.pyplot(fig=plt)
-#     if select_category == "Payments/Pricing Analytics":
-#       if action_button:
-#         data = [[ 66386, 174296,  75131, 577908,  32015],
-#         [ 58230, 381139,  78045,  99308, 160454],
-#         [ 89135,  80552, 152558, 497981, 603535],
-#         [ 78415,  81858, 150656, 193263,  69638],
-#         [139361, 331509, 343164, 781380,  52269]]
 
-#         columns = ('Freeze', 'Wind', 'Flood', 'Quake', 'Hail')
-#         rows = ['%d year' % x for x in (100, 50, 20, 10, 5)]
-
-#         values = np.arange(0, 2500, 500)
-#         value_increment = 1000
-
-#         # Get some pastel shades for the colors
-#         colors = plt.cm.BuPu(np.linspace(0, 0.5, len(rows)))
-#         n_rows = len(data)
-
-#         index = np.arange(len(columns)) + 0.3
-#         bar_width = 0.4
-
-#         # Initialize the vertical-offset for the stacked bar chart.
-#         y_offset = np.zeros(len(columns))
-
-#         # Plot bars and create text labels for the table
-#         cell_text = []
-#         for row in range(n_rows):
-#             plt.bar(index, data[row], bar_width, bottom=y_offset, color=colors[row])
-#             y_offset = y_offset + data[row]
-#             cell_text.append(['%1.1f' % (x / 1000.0) for x in y_offset])
-#         # Reverse colors and text labels to display the last value at the top.
-#         colors = colors[::-1]
-#         cell_text.reverse()
-
-#         # Add a table at the bottom of the axes
-#         the_table = plt.table(cellText=cell_text,
-#                               rowLabels=rows,
-#                               rowColours=colors,
-#                               colLabels=columns,
-#                               loc='bottom')
-
-#         # Adjust layout to make room for the table:
-#         plt.subplots_adjust(left=0.2, bottom=0.2)
-#         plt.ylabel("Loss in ${0}'s".format(value_increment))
-#         plt.yticks(values * value_increment, ['%d' % val for val in values])
-#         plt.xticks([])
-#         plt.title('Loss by Disaster')
-#         plt.show()
-#         st.pyplot(fig=plt)
     if select_category == "Risk Analytics":
       if action_button:
         tokens=[]
