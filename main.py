@@ -145,12 +145,15 @@ def st_ui():
       if search_text:
         result=search_report(cleaned_document,search_text.lower())
         st.header('Related information linked to Search Content')
+        st.write(result)
+        '''
         info=''
         find_instance=1
         for i in result:
             info+=str(find_instance) + ":" + i +"\n"
             find_instance=find_instance + 1
         st.write(info)
+        '''
     
     if select_category == "Simplify Content":
       if action_button:
