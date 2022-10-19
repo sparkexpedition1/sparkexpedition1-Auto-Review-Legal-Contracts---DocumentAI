@@ -130,7 +130,7 @@ def st_ui():
 #   select_category = st.sidebar.selectbox("Select Category", ["Simplify Content", "Risk Analytics","Spatial Analytics","Payments/Pricing Analytics","Stakeholders/Parties Analytics","Search Content"])
   search_text = st.sidebar.text_input("Text to search")
   action_button=st.sidebar.button('Analyze Contract')
-  st.checkbox("Simplify Content")
+#   st.checkbox("Simplify Content")
    
   if file_upload:
 #     st.session_state.load_state=True
