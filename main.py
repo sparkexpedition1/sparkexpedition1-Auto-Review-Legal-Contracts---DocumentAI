@@ -166,8 +166,8 @@ def st_ui():
                 [ 78415,  81858, 150656, 193263,  69638],
                 [139361, 331509, 343164, 781380,  52269]]
 
-        columns = ('Freeze', 'Wind', 'Flood', 'Quake', 'Hail')
-        rows = ['%d year' % x for x in (100, 50, 20, 10, 5)]
+        columns = ('Icecream', 'EnergyDrinks', 'Apples', 'Exotic Meats', 'Soaps')
+        rows = ['%d quantity' % x for x in (100, 50, 20, 10, 5)]
 
         values = np.arange(0, 2500, 500)
         value_increment = 1000
@@ -205,7 +205,7 @@ def st_ui():
         plt.ylabel("Loss in ${0}'s".format(value_increment))
         plt.yticks(values * value_increment, ['%d' % val for val in values])
         plt.xticks([])
-        plt.title('Loss by Disaster')
+        plt.title('Pricing Sheet by Quantities')
 
         plt.show()
         st.pyplot(fig=plt)
