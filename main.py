@@ -32,8 +32,6 @@ __description__ = "Working on 7 insights modules"
 # Initialize Python Libraries
 import fitz
 import io
-import docx
-from pptx import Presentation
 import re
 import string
 import nltk
