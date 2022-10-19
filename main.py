@@ -124,10 +124,10 @@ __description__ = "Power the StreamLit UI with required controls"
 
 def st_ui():
   st.set_page_config(layout = "wide")
-  st.title("'Counselor' - Auto Review Contracts and Agreements powered by DocumentAI")  
+  st.title("'Counselor' - Auto Review Contracts and Agreements")  
 
   file_upload = st.sidebar.file_uploader("Upload Contract/Agreement here..")
-  select_category = st.sidebar.selectbox("select_category", ["Simplify Content", "Risk Analytics","Spatial Analytics","Payments/Pricing Analytics","Stakeholders/Parties Analytics","Search Content"])
+  select_category = st.sidebar.selectbox("Select Category", ["Simplify Content", "Risk Analytics","Spatial Analytics","Payments/Pricing Analytics","Stakeholders/Parties Analytics","Search Content"])
   search_text = st.sidebar.text_input("Text to search")
   action_button=st.sidebar.button('Analyze Contract')
    
