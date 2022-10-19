@@ -7,3 +7,5 @@ streamlit
 wordcloud
 matplotlib
 collections
+mpl_toolkits
+numpy
