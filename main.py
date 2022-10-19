@@ -132,7 +132,7 @@ def st_ui():
   action_button=st.sidebar.button('Analyze Contract')
   st.checkbox("Simplify Content")
    
-  if file_upload or st.session_state.load_state:
+  if file_upload:
 #     st.session_state.load_state=True
     text=[]
     pdfbytes = file_upload.getvalue()
