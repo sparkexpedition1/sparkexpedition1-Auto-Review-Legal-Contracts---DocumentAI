@@ -141,6 +141,16 @@ def st_ui():
     cleaned_document=preprocessing(text)
     clean_text=data_string(cleaned_document)
     
+    if select_category == "Search Content":
+      if action_button:
+        if search_text:
+          result=search_report(cleaned_document,search_text.lower())
+          st.header('Related information linked to Search Content')
+          info=''
+          for i in result:
+              info+=i+" "
+          st.write(info)
+    
     if select_category == "Simplify Content":
       if action_button:
         st.header('Simplifying the content as Word Cloud..')
@@ -176,15 +186,6 @@ def st_ui():
         plt.show()
         st.pyplot(fig=plt)
 
-    if select_category == "Search Content":
-      if action_button:
-        if search_text:
-          result=search_report(cleaned_document,search_text.lower())
-          st.header('Related information linked to Search Content')
-          info=''
-          for i in result:
-              info+=i+" "
-          st.write(info)
 
 __author__ = "Kalpana D"
 __version__ = "1.0.1"
