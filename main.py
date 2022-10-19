@@ -1,3 +1,12 @@
+__author__ = "Kalpana D"
+__copyright__ = "Copyright 2022, Daisi Hackathon"
+__license__ = "GPL"
+__version__ = "1.0.1"
+__maintainer__ = "Kalpana D"
+__email__ = "spark.expedition@gmail.com"
+__status__ = "Development"
+__description__ = "Working on 7 insights modules"
+
 import fitz
 import io
 import docx
