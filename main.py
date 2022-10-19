@@ -133,7 +133,7 @@ def st_ui():
   st.checkbox("Simplify Content")
    
   if file_upload or st.session_state.load_state:
-    st.session_state.load_state=True
+#     st.session_state.load_state=True
     text=[]
     pdfbytes = file_upload.getvalue()
     doc = return_doc_from_bytes(pdfbytes)
