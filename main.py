@@ -142,14 +142,13 @@ def st_ui():
     clean_text=data_string(cleaned_document)
     
     if select_category == "Search Content":
-      if action_button:
-        if search_text:
-          result=search_report(cleaned_document,search_text.lower())
-          st.header('Related information linked to Search Content')
-          info=''
-          for i in result:
-              info+=i+" "
-          st.write(info)
+      if search_text:
+        result=search_report(cleaned_document,search_text.lower())
+        st.header('Related information linked to Search Content')
+        info=''
+        for i in result:
+            info+=i+" "
+        st.write(info)
     
     if select_category == "Simplify Content":
       if action_button:
